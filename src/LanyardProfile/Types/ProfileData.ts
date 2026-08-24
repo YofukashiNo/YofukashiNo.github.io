@@ -7,12 +7,16 @@ export default interface ProfileData {
   age: number;
   activity: {
     hidden: boolean;
-    bigImage?: string;
-    bigImageTitle?: string;
-    smallImage?: string;
-    name?: string;
-    state?: string;
-    details?: string;
-    timestamps?: { start: number; end: number };
+    activities: Array<{
+      bigImage?: string;
+      bigImageTitle?: string;
+      smallImage?: string;
+      smallImageTitle?: string;
+      name?: string;
+      state?: string;
+      details?: string;
+      type?: string;
+      timestamps?: { start: number; end?: number };
+    }>;
   };
 }

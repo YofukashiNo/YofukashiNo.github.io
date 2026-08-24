@@ -1,6 +1,5 @@
 .loading-wrapper {
   display: flex;
-  gap: 8px;
   width: 100%;
 }
 
@@ -10,7 +9,11 @@
   border-radius: 10%;
 }
 
-.loading-header {
-  font-size: 45px;
-  font-weight: bold;
+#loading-header {
+  text-align: center;
+  width: 100%;
+  align-self: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 16px;
 }

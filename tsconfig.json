@@ -1,23 +1,47 @@
 {
-    "compilerOptions": {
-      "target": "ES2017",
-      "module": "ES2022",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "lib": ["ESNext",
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "lib": [
+      "ESNext",
       "DOM",
-      "DOM.Iterable"],
-      "allowJs": true,
-      "jsx": "react-jsx",
-      "outDir": "./build",
-      "strict": false,
-      "noEmit": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "checkJs": true,
-      
-    },
-    "include": ["src",  "src/custom.d.ts"],
-    "exclude": ["node_modules"]
-  }
-  
+      "DOM.Iterable"
+    ],
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "outDir": "./build",
+    "rootDir": "./",
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "checkJs": true,
+    "baseUrl": "./",
+    "paths": {
+      "@Assets": [
+        "src/assets/index.js"
+      ],
+      "@Types": [
+        "src/LanyardProfile/Types"
+      ],
+      "@Utils": [
+        "src/LanyardProfile/Utils"
+      ],
+      "@Constants": [
+        "src/constants.ts"
+      ],
+      "@components/*": [
+        "src/LanyardProfile/Components/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "src/loader.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

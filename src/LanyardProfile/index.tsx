@@ -1,19 +1,18 @@
 import React from "react";
-import Constants from "../constants";
-import assets from "../assets";
-import Utils from "./Utils";
-import UserProfile from "./Components/UserProfile";
-import Activity from "./Components/Activity";
-import AboutMe from "./Components/AboutMe";
-import { LanyardData, ProfileData } from "./Types";
+import Constants from "@Constants";
+import Assets from "@Assets";
+import Utils, { CardContext } from "@Utils";
+import UserProfile from "@components/UserProfile";
+import Info from "@components/Info";
+import { LanyardData, ProfileData } from "@Types";
 import "./LanyardProfile.css";
-import Loading from "./Components/Loading";
 
 export default React.memo(() => {
+  const audio = Utils.getAudio();
   const [rawData, setRawData] = React.useState<LanyardData>();
   const [loading, setLoading] = React.useState<boolean>(true);
   const [profileData, setProfileData] = React.useState<ProfileData>({
-    avatar: assets.loader as string,
+    avatar: Assets.loader,
     discordStatus: "",
     displayName: "",
     username: "",
@@ -21,11 +20,7 @@ export default React.memo(() => {
     age: 0,
     activity: {
       hidden: true,
-      bigImage: "",
-      smallImage: "",
-      name: "",
-      state: "",
-      details: "",
+      activities: [],
     },
   });
   const SocketConstants = React.useRef<{
@@ -93,17 +88,23 @@ export default React.memo(() => {
     }
   }, [rawData, loading]);
 
+  const [popoutPath, setPopout] = React.useState(["info", "music"]);
+
   return (
-    <div className="wrapper" key={`${loading}`}>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <UserProfile {...profileData} />
-          <Activity {...profileData} />
-          <AboutMe {...profileData} />
-        </>
-      )}
+    <div
+      className="wrapper"
+      onClick={() => {
+        if (audio.started) return;
+        audio.started = true;
+        audio.play();
+      }}>
+      <span className="container">
+        <CardContext.Provider value={{ ...profileData, popoutPath, setPopout, loading }}>
+          <UserProfile />
+          <Info key={`popout-${popoutPath}`} popout={true} />
+          <Info key={"static"} {...profileData} />
+        </CardContext.Provider>
+      </span>
     </div>
   );
 });

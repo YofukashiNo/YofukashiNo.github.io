@@ -1,0 +1,37 @@
+.heading {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.readme {
+  font-family: "FiraCode Nerd Font Mono";
+}
+.readme li {
+  text-align: left;
+  padding-left: 1em;
+}
+
+.readme {
+  padding-bottom: 5px;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .readme {
+    font-size: 14px;
+    text-align: center;
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  .readme li {
+    text-align: left;
+    padding-left: 1em;
+  }
+}
+/* media queries */

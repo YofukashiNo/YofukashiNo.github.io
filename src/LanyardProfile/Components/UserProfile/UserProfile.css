@@ -13,16 +13,23 @@
   border-radius: 10%;
 }
 
-#status-dot {
+.status-dot-container {
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 5);
   position: absolute;
   top: 0px;
   right: 0px;
   transform: translate(50%, -50%);
-  border: 2px solid rgba(60, 59, 59, 0.3);
+  border: 2px solid rgba(59, 59, 59, 0.3);
+}
+
+#status-dot {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  transform: translate(20%, 20%);
 }
 
 #display-name {
