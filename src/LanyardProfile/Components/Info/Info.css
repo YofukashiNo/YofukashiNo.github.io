@@ -1,0 +1,35 @@
+.info {
+  padding: 5px;
+  padding-top: unset;
+}
+
+.info-command {
+  font-family: "3270 Nerd Font Mono";
+  opacity: 0.5;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: unset;
+}
+
+.info-paths {
+  font-family: "FiraCode Nerd Font Mono";
+  padding: 10px;
+  padding-top: unset;
+  padding-bottom: unset;
+}
+
+.info-paths > li {
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.25s ease;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 0.5em;
+  margin: 0.5px;
+}
+
+.info-paths > li:hover {
+  opacity: 1;
+  padding-left: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}

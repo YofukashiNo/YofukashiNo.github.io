@@ -1,10 +1,20 @@
 import background from "./background.gif";
 import loader from "./loader.gif";
-import backgroundAudio from "./background audio";
-import connections from "./connections";
+import socials from "./Socials";
+import Status from "./Status";
+import BackgroundAudio from "./BackgroundAudio";
+
+export {
+  background,
+  loader,
+  BackgroundAudio,
+  socials,
+  Status
+};
 export default {
   background,
   loader,
-  backgroundAudio,
-  connections,
+  BackgroundAudio,
+  socials,
+  Status
 };

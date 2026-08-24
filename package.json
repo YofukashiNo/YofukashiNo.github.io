@@ -7,13 +7,16 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^18.19.86",
     "@types/react": "^18.3.20",
+    "@types/webpack": "^5.28.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "classnames": "^2.5.1",
     "eslint": "^8.57.1",
     "eslint-config-dmitmel": "github:dmitmel/eslint-config-dmitmel",
     "eslint-plugin-node": "^11.1.0",
@@ -22,6 +25,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typescript": "^5.8.3",
     "web-vitals": "^2.1.4"
   },
@@ -30,12 +34,12 @@
     "gh-pages": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier:check": "prettier ./src --check",
     "prettier:fix": "prettier ./src --write"

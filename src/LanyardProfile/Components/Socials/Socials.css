@@ -1,0 +1,93 @@
+/* activites selector */
+
+.socials {
+  padding: 5px;
+  padding-top: unset;
+}
+
+.socials-command {
+  font-family: "3270 Nerd Font Mono";
+  opacity: 0.5;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: unset;
+}
+
+.socials-paths {
+  font-family: "FiraCode Nerd Font Mono";
+  padding: 10px;
+  padding-top: unset;
+  padding-bottom: unset;
+}
+
+.socials-paths > li {
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.25s ease;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 0.5em;
+  margin: 0.5px;
+}
+
+.socials-paths > li:hover {
+  opacity: 1;
+  padding-left: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.socials-command {
+  font-family: "3270 Nerd Font Mono";
+  opacity: 0.5;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: unset;
+}
+
+.socials-paths {
+  font-family: "FiraCode Nerd Font Mono";
+  padding: 10px;
+  padding-top: unset;
+  padding-bottom: unset;
+}
+.socials-paths a {
+  text-decoration: unset;
+}
+
+.socials-paths li {
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.25s ease;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 0.5em;
+  margin: 0.5px;
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
+.socials-paths li:hover {
+  opacity: 1;
+  padding-left: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.social-icon {
+  height: 14px;
+  width: auto;
+  opacity: 1;
+  margin-bottom: 2.5px;
+}
+
+.connections.shown .show-button {
+  transform: rotate(180deg);
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .connections {
+    justify-content: center;
+  }
+}
+/* media queries */

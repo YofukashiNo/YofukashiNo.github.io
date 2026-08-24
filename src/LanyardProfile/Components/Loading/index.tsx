@@ -1,18 +1,26 @@
 import React from "react";
-import Assets from "../../../assets";
-import Constants from "../../../constants";
-import BackgroundMusic from "../BackgroundMusic";
+import Utils from "@Utils";
+import Cards from "@components/Cards";
+import Assets, { BackgroundAudio } from "@Assets";
+
 import "./Loading.css";
+
 export default React.memo(() => {
-  const containerRef = React.useRef();
+  const audio = Utils.getAudio();
+  React.useEffect(() => {
+    audio.src = BackgroundAudio.awkwardCricket;
+    if (audio.started && audio.paused) audio.play();
+    return () => {
+      audio.src = BackgroundAudio.アレンジ;
+      if (audio.started && audio.paused) audio.play();
+    };
+  });
   return (
-    <div className="loading card" ref={containerRef}>
-      <div className="card-title">@{Constants.USER} &gt; loading</div>
+    <Cards path={["loading"]}>
       <div className="loading-wrapper">
         <img id="loading-image" src={Assets.loader} alt="" />
         <div id="loading-header">LOADING...</div>
-        <BackgroundMusic loading={true} containerRef={containerRef} />
       </div>
-    </div>
+    </Cards>
   );
 });

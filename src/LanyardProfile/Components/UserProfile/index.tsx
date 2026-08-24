@@ -1,20 +1,27 @@
-import Connections from "../Connections";
-import Constants from "../../../constants";
-import Utils from "../../Utils";
-import { ProfileData } from "../../Types";
+import Cards from "@components/Cards";
+import Loading from "@components/Loading";
+import Utils, { CardContext } from "@Utils";
+
 import "./UserProfile.css";
-export default ({ avatar, discordStatus, displayName, username, status }: ProfileData) => {
+
+export default () => {
+  const { avatar, discordStatus, displayName, username, status, loading } = CardContext.use();
+
+  if (loading) return <Loading />;
+
   return (
-    <div className="card">
-      <div className="card-title">@{Constants.USER} &gt; home</div>
+    <Cards path={["home"]}>
       <div className="user-profile">
         <div className="profile-pic">
           <img id="pfp" src={avatar} alt="" />
-          <div
-            id="status-dot"
-            data-tooltip={discordStatus}
-            aria-label={discordStatus}
-            style={Utils.getStatusStyles(discordStatus)}></div>
+          <div className="status-dot-container">
+            <div
+              id="status-dot"
+              data-tooltip={discordStatus}
+              aria-label={discordStatus}
+              style={Utils.getStatusStyles(discordStatus)}
+            />
+          </div>
         </div>
         <div className="user-info">
           {displayName ? (
@@ -26,12 +33,15 @@ export default ({ avatar, discordStatus, displayName, username, status }: Profil
             <div id="username">{username}</div>
           )}
           <div id="status">{status}</div>
-          <div id="status2" style={{ color: Utils.getStatusStyles(discordStatus).color }}>
+          <div
+            id="status2"
+            style={{
+              color: Utils.getStatusStyles(discordStatus).color,
+            }}>
             {discordStatus !== "offline" ? discordStatus : "unknown"}
           </div>
-          <Connections />
         </div>
       </div>
-    </div>
+    </Cards>
   );
 };

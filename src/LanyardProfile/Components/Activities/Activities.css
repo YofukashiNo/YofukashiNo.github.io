@@ -1,0 +1,156 @@
+/* activites selector */
+
+.activities {
+  padding: 5px;
+  padding-top: unset;
+}
+
+.activities-command {
+  font-family: "3270 Nerd Font Mono";
+  opacity: 0.5;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: unset;
+}
+
+.activities-paths {
+  font-family: "FiraCode Nerd Font Mono";
+  padding: 10px;
+  padding-top: unset;
+  padding-bottom: unset;
+}
+
+.activities-paths > li {
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.25s ease;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 0.5em;
+  margin: 0.5px;
+}
+
+.activities-paths > li:hover {
+  opacity: 1;
+  padding-left: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.activities-command {
+  font-family: "3270 Nerd Font Mono";
+  opacity: 0.5;
+  font-size: 20px;
+  padding: 10px;
+  padding-top: unset;
+}
+
+.activities-paths {
+  font-family: "FiraCode Nerd Font Mono";
+  padding: 10px;
+  padding-top: unset;
+  padding-bottom: unset;
+}
+
+.activities-paths > li {
+  opacity: 0.75;
+  cursor: pointer;
+  transition: 0.25s ease;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 0.5em;
+  margin: 0.5px;
+}
+
+.activities-paths > li:hover {
+  opacity: 1;
+  padding-left: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* activites selector */
+
+/* activity */
+.activity-info {
+  width: 100%;
+  align-content: center;
+}
+.activity-wrapper {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.activity-activities {
+  width: 100%;
+}
+
+.activity-images {
+  position: relative;
+}
+
+#activity-big-image {
+  width: 118px;
+  height: 118px;
+  border-radius: 10%;
+}
+
+#activity-small-image {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  transform: translate(25%, 0);
+  border: 2px solid rgba(60, 59, 59, 0.3);
+}
+
+#activity-name {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#activity-state {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+#activity-detail {
+  opacity: 0.5;
+}
+
+/* activity */
+
+/* media queries */
+@media (max-width: 768px) {
+  .activity-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #activity-big-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  #activity-small-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  #activity-name {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #activity-state {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  #activity-detail {
+    text-align: center;
+  }
+}
+/* media queries */

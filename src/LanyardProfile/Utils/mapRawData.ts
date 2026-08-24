@@ -1,57 +1,57 @@
-import Constants from "../../constants";
-import Utils from "../Utils";
+import Constants from "@Constants";
+import Utils from "@Utils";
+import type { LanyardData, ProfileData } from "@Types";
 
-import { LanyardData, ProfileData } from "../Types";
-export default (rawData: LanyardData): ProfileData => {
-  const { discord_user, discord_status, activities, spotify } = rawData ?? {};
-
-  const currentActivity = activities?.find((activity) => activity.type !== 4);
-
-  const statusActivity = activities?.find((activity) => activity.type === 4);
+export default (rawData?: LanyardData): ProfileData => {
+  const { discord_user, discord_status, activities = [], spotify } = rawData ?? {};
+  const statusActivity = activities.find((activity) => activity.type === 4);
+  const streaming = activities.some((activity) => activity.type === 1);
 
   const currentData: ProfileData = {
     avatar: `https://cdn.discordapp.com/avatars/${Constants.USER_ID}/${discord_user?.avatar}`,
-    discordStatus: discord_status,
+    discordStatus: streaming ? "streaming" : discord_status,
     username: `@${discord_user?.username}`,
     displayName: discord_user?.display_name ?? "",
     age: Utils.calculateAge(Constants.DATE_OF_BIRTH),
     status:
       discord_status !== "offline" && statusActivity?.state ? statusActivity?.state || "" : "",
     activity: {
-      hidden: discord_status === "offline" || !currentActivity,
-      bigImage:
-        !currentActivity?.assets?.large_image?.includes("spotify") &&
-        currentActivity?.assets?.large_image
-          ? currentActivity?.assets?.large_image?.includes("external")
-            ? `https://media.discordapp.net/external/${
-                currentActivity?.assets?.large_image.split("mp:external/")[1]
-              }`
-            : currentActivity?.assets?.large_image?.includes("mp:attachments")
-            ? `https://cdn.discordapp.com/attachments/${
-                currentActivity?.assets?.large_image.split("mp:attachments/")[1]
-              }`.replace(/(\w+\/\w+\.\w+)\.\w+/, `$1`)
-            : `https://cdn.discordapp.com/app-assets/${currentActivity?.application_id}/${currentActivity?.assets?.large_image}.png`
-          : currentActivity?.assets?.large_image?.includes("spotify")
-          ? spotify?.album_art_url
-          : "",
-      bigImageTitle: currentActivity?.assets?.large_image?.includes("spotify")
-        ? spotify?.album
-        : "",
-      smallImage: currentActivity?.assets?.small_image
-        ? currentActivity?.assets?.small_image?.includes("external")
-          ? `https://media.discordapp.net/external/${
-              currentActivity?.assets?.small_image?.split("mp:external/")[1]
-            }`
-          : currentActivity?.assets?.small_image?.includes("mp:attachments")
-          ? `https://cdn.discordapp.com/attachments/${
-              currentActivity?.assets?.small_image.split("mp:attachments/")[1]
-            }`.replace(/(\w+\/\w+\.\w+)\.\w+/, `$1`)
-          : `https://cdn.discordapp.com/app-assets/${currentActivity?.application_id}/${currentActivity?.assets?.small_image}.png`
-        : "",
-      name: currentActivity?.name || "doing yo moma",
-      state: currentActivity?.state || "",
-      details: currentActivity?.details || "",
-      timestamps: spotify?.timestamps,
+      hidden: discord_status === "offline" || !activities?.length,
+      activities: activities.reduce(
+        (acts, activity) => {
+          if (
+            activity.type == 4 ||
+            activity.id?.startsWith("spotify") ||
+            acts.some((a) => a.name === activity.name)
+          )
+            return acts;
+
+          return [
+            ...acts,
+            {
+              bigImage: Utils.getAssetURL(activity.assets?.large_image, activity.application_id),
+              bigImageTitle: activity?.assets?.large_text,
+              smallImage: Utils.getAssetURL(activity.assets?.small_image, activity.application_id),
+              smallImageTitle: activity.assets?.small_text,
+              name: activity?.name,
+              state: activity?.state,
+              details: activity?.details,
+              timestamps: activity?.timestamps,
+            },
+          ];
+        },
+        [
+          spotify && {
+            bigImage: spotify?.album_art_url,
+            bigImageTitle: spotify?.album,
+            name: spotify.song,
+            state: spotify.album,
+            details: spotify.artist,
+            timestamps: spotify?.timestamps,
+            type: "spotify",
+          },
+        ].filter(Boolean),
+      ),
     },
   };
 

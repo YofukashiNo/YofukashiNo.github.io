@@ -1,0 +1,68 @@
+.heading {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.bio {
+  padding: 15px 0 15px 0;
+  font-family: "FiraCode Nerd Font Mono";
+  text-align: center;
+
+  white-space: pre-line;
+  padding: 1rem 2rem;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.shakkeable {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.bio .italic-hover:hover {
+  font-style: italic;
+}
+
+.bio:hover .shakkeable {
+  animation: shake 2.5s linear infinite;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .bio {
+    font-size: 14px;
+    text-align: center;
+    list-style-position: inside;
+    padding-left: 0;
+  }
+}
+/* media queries */
+
+/* shake animation */
+@keyframes shake {
+  0%,
+  94%,
+  96%,
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  95% {
+    transform: translate(-2px, 1px);
+    opacity: 0.9;
+  }
+  95.5% {
+    transform: translate(2px, -1px);
+    opacity: 0.85;
+  }
+  96% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+/* shake animation */

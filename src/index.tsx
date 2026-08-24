@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import LanyardProfile from "./LanyardProfile";
+import "src/index.css";
+import LanyardProfile from "src/LanyardProfile";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
