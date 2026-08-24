@@ -1,19 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc074006.css",
-    "main.js": "/static/js/main.e592dd2a.js",
+    "main.css": "/static/css/main.2e54bde4.css",
+    "main.js": "/static/js/main.4d50c379.js",
     "static/media/background.gif": "/static/media/background.c944ca5411608b81384a.gif",
-    "static/media/daten kazoo.mp3": "/static/media/daten kazoo.4be8de13e55c3ffb5150.mp3",
+    "static/media/3270 Nerd Font Mono.ttf": "/static/media/3270 Nerd Font Mono.0f0bc04936e8a58e99ee.ttf",
+    "static/media/【8bitアレンジ】.mp3": "/static/media/【8bitアレンジ】.a86965f8d4891b3d6c01.mp3",
+    "static/media/FiraCode Nerd Font Mono.ttf": "/static/media/FiraCode Nerd Font Mono.10d3950e1561b44702c9.ttf",
     "static/media/loader.gif": "/static/media/loader.8e6c70225ebd19029c9d.gif",
-    "static/media/awkward cricket.mp3": "/static/media/awkward cricket.7863079a66e700505689.mp3",
+    "static/media/awkward_cricket.mp3": "/static/media/awkward_cricket.7863079a66e700505689.mp3",
+    "static/media/disc.svg": "/static/media/disc.a8defe038700bcd7385e846342b78d54.svg",
     "index.html": "/index.html",
-    "static/media/play.svg": "/static/media/play.74183330fe64bf93a38c7ab63d7bb6ec.svg",
-    "static/media/pause.svg": "/static/media/pause.8b70a623a6e30e41670934f9b9521812.svg",
-    "main.bc074006.css.map": "/static/css/main.bc074006.css.map",
-    "main.e592dd2a.js.map": "/static/js/main.e592dd2a.js.map"
+    "static/media/idle.svg": "/static/media/idle.24c99373a55ce559c666e80e8bbfa76d.svg",
+    "static/media/dnd.svg": "/static/media/dnd.c73a099eccee4fcbb613efc630295bd7.svg",
+    "static/media/stream.svg": "/static/media/stream.7df0626ea3f0c795c38dd4a0c8d85290.svg",
+    "static/media/online.svg": "/static/media/online.953d1ffc77d279648abbcbf4893d3e49.svg",
+    "static/media/offline.svg": "/static/media/offline.b0dd887d1a3f994f4ea811110aa84804.svg",
+    "static/media/play.svg": "/static/media/play.7c154c4cce704ab9c7f01dcaa0a1ba44.svg",
+    "static/media/pause.svg": "/static/media/pause.2ebbd2eda814d960db7b8784ae96c222.svg",
+    "main.2e54bde4.css.map": "/static/css/main.2e54bde4.css.map",
+    "main.4d50c379.js.map": "/static/js/main.4d50c379.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc074006.css",
-    "static/js/main.e592dd2a.js"
+    "static/css/main.2e54bde4.css",
+    "static/js/main.4d50c379.js"
   ]
 }
